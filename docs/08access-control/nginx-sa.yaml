@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-sa
+spec:
+  containers:
+  - image: nginx
+    name: nginx
+  # mysa ServiceAccount 사용
+  serviceAccountName: mysa

@@ -1,0 +1,52 @@
+site_name: 쿠버네티스 중급
+
+theme:
+  name: gitbook
+  highlightjs: true
+  hljs_languages:
+    - yaml
+    - bash
+
+
+#plugins: ["search"]
+plugins: []
+
+nav:
+    - 01 Overview: 01overview/README.md
+    - 02 Kubespray: 02kubespray/README.md
+    - 03 Helm 패키지 매니저: 03helm/README.md
+    - 04 Ingress: 04ingress/README.md
+    - 05 스토리지: 05storage/README.md
+    - 06 고급 스케줄링: 06scheduling/README.md
+    - 07 리소스 관리: 07resource-mgt/README.md
+    - 08 접근제어: 08access-control/README.md
+    - 09 사용자정의 리소스: 09crd/README.md
+    - 10 로깅 & 모니터링: 10log-mon/README.md
+    - 11 CI / CD: 11cicd/README.md
+    - 12 워크플로우 관리: 12workflow/README.md
+
+
+    
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.superfences
+  - pymdownx.snippets
+  - fenced_code
+  - pymdownx.highlight:
+      use_pygments: true
+  - codehilite
+
+  - markdown.extensions.admonition 
+  - markdown.extensions.attr_list 
+  - markdown.extensions.def_list 
+  - markdown.extensions.footnotes 
+  - markdown.extensions.meta 
+  - markdown.extensions.toc: 
+      permalink: true 
+  - pymdownx.arithmatex: 
+      generic: true 
+  - pymdownx.betterem: 
+      smart_enable: all 

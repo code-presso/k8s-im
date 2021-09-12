@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+  name: argo-server
+  namespace: argo
+spec:
+  rules:
+  - host: argo.10.0.1.1.sslip.io
+    http:
+      paths:
+      - backend:
+          serviceName: argo-server
+          servicePort: 2746
+        path: /

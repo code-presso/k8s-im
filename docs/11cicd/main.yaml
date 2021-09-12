@@ -1,0 +1,24 @@
+name: kubernetes CI/CD
+on: push
+
+jobs:
+  build:
+    name: Hello world action
+    runs-on: ubuntu-latest    
+    steps:
+    - name: checkout source code
+      uses: actions/checkout@main
+
+    - name: Build the Docker image
+      run: docker build . -t $GITHUB_ACTOR/nginx:$GITHUB_RUN_NUMBER
+
+    - name: Test image
+      run: echo "Run image test!"
+
+    - name: login
+      run: docker login -u $GITHUB_ACTOR -p $PASSWORD
+      env:
+        PASSWORD: ${{ secrets.PASSWORD }}
+
+    - name: push
+      run: docker push $GITHUB_ACTOR/nginx:$GITHUB_RUN_NUMBER
