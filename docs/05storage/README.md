@@ -283,9 +283,9 @@ git clone https://github.com/kubernetes-sigs/nfs-ganesha-server-and-external-pro
 
 cd nfs-ganesha-server-and-external-provisioner
 
-kubectl create -f deploy/kubernetes/deployment.yaml
-kubectl create -f deploy/kubernetes/rbac.yaml
-kubectl create -f deploy/kubernetes/class.yaml
+kubectl create -n ctrl -f deploy/kubernetes/deployment.yaml
+kubectl create -n ctrl -f deploy/kubernetes/rbac.yaml
+kubectl create -n ctrl -f deploy/kubernetes/class.yaml
 kubectl patch storageclass example-nfs -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
 
 kubectl create clusterrolebinding nfs-admin --clusterrole cluster-admin --serviceaccount default:nfs-provisioner
@@ -295,15 +295,14 @@ cd ~/kubespray
 ansible all -i inventory/mycluster/hosts.yaml -m ansible.builtin.shell --become --become-user=root  -a 'apt update && sudo apt install -y nfs-client'
 
 
-kubectl get pod
+kubectl get pod -n ctrl 
 # NAME                               READY   STATUS    RESTARTS   AGE
 # nfs-provisioner-78dc99f5b7-kf8hj   1/1     Running   0          2m15s
 
 
 # nfs-server-provisioner Service도 있습니다.
-kubectl get svc
+kubectl get svc -n ctrl 
 # NAME              TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)             AGE
-# kubernetes        ClusterIP   10.233.0.1     <none>        443/TCP             17h
 # nfs-provisioner   ClusterIP   10.233.16.80   <none>        2049/TCP,2049/...   3m22s
 
 
