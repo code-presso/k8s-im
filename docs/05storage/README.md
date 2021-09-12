@@ -288,7 +288,7 @@ kubectl create -n ctrl -f deploy/kubernetes/rbac.yaml
 kubectl create -n ctrl -f deploy/kubernetes/class.yaml
 kubectl patch storageclass example-nfs -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
 
-kubectl create clusterrolebinding nfs-admin --clusterrole cluster-admin --serviceaccount default:nfs-provisioner
+kubectl create clusterrolebinding nfs-admin --clusterrole cluster-admin --serviceaccount ctrl:nfs-provisioner
 
 # install nfs-util from kubespray
 cd ~/kubespray
