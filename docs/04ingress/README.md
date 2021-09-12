@@ -273,6 +273,8 @@ EOF
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx
   name: apache-tls
 spec:
   tls:
