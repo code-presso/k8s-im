@@ -16,7 +16,7 @@ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 bash Miniconda3-latest-Linux-x86_64.sh
 
 # Install dependencies from ``requirements.txt``
-pip install -r requirements.txt
+pip install PyOpenSSL==19.0.0 && pip install -r requirements.txt
 # pip install --ignore-installed ruamel.yaml
 
 # Copy ``inventory/sample`` as ``inventory/mycluster``
