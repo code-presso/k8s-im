@@ -305,5 +305,5 @@ kubectl create -f dag.yaml
 
 ```bash
 kubectl delete wf --all
-kubectl delete -f https://raw.githubusercontent.com/argoproj/argo/v2.8.1/manifests/install.yaml
+kubectl delete -f https://raw.githubusercontent.com/argoproj/argo-workflows/stable/manifests/quick-start-postgres.yaml
 ```
