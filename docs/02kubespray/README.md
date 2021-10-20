@@ -5,10 +5,6 @@
 kubespray: [https://github.com/kubernetes-sigs/kubespray](https://github.com/kubernetes-sigs/kubespray)
 
 ```bash
-MASTER='x.x.x.x'
-WORKER1='x.x.x.x'
-WORKER2='x.x.x.x'
-
 git clone https://github.com/kubernetes-sigs/kubespray.git -b v2.15.1
 cd kubespray
 
@@ -21,6 +17,10 @@ pip install PyOpenSSL==19.0.0 && pip install -r requirements.txt
 
 # Copy ``inventory/sample`` as ``inventory/mycluster``
 cp -rfp inventory/sample inventory/mycluster
+
+MASTER='x.x.x.x'
+WORKER1='x.x.x.x'
+WORKER2='x.x.x.x'
 
 # Update Ansible inventory file with inventory builder
 declare -a IPS=($MASTER $WORKER1 $WORKER2)
